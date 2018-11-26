@@ -1,9 +1,9 @@
 pragma  solidity 0.4.25;
 
 /**
-@title VotacaoAssembleia
-@notice Contrato Inteligente para armazenar a votação de uma Assembleia
-@author Jeff Prestes
+@title VotacaoBonus
+@notice Contrato Inteligente para armazenar a votação de Bonus
+@author Eduardo Curiati
 */
 contract VotacaoAssembleia {
 
@@ -25,7 +25,7 @@ contract VotacaoAssembleia {
 
     modifier somenteSecretario() {
         if (precisaSecretario) {
-            require(secretario == msg.sender, "Só o secretário pode realizar essa operação");
+            require(secretario == msg.sender, "Somente o secretário pode realizar essa operação");
         }
         _;
     }
@@ -53,9 +53,9 @@ contract VotacaoAssembleia {
     bool precisaSecretario;
 
     /**
-    @notice A pessoa que presidirá a Assembléia deve registrar o Smart Contract
+    @notice A pessoa que presidirá a Votacao deve registrar o Smart Contract
     @dev Cria um contrato específico para uma Assembleia. O presidente designado é quem registrou o Smart Contract na rede
-    @param qualMotivoConvocatoria - O presidente da Assembléia escreve o motivo da convocatória da Assembléia
+    @param qualMotivoConvocatoria - O presidente da Assembléia escreve o motivo da convocatória da Votação
     @param eNecessarioSecretario - Verdadeiro caso o presidente necessite de um secretario para controlar os votantes e propostas
     */
     constructor (string qualMotivoConvocatoria, bool eNecessarioSecretario) public {
