@@ -3,7 +3,7 @@ pragma  solidity 0.4.25;
 /**
 @title Voting
 @notice Smart contract to store voting results
-@author Jeff Prestes
+@author Eduardo Curiati
 */
 contract Voting {
 
